@@ -1,8 +1,8 @@
 # vueclient
 npm run serve
 
-to deploy on netlify just
-git push origin
+to deploy on netlify
+git push origin to github -> netlify will automatically pick up the push and deploy it (probably should create prod branch at some point)
 
 ## Project setup
 ```
