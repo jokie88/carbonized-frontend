@@ -1,0 +1,7 @@
+{
+  "name": "Genesis Stones",
+  "description": "Carbonized NFTs are NFTs that have been infused with carbon captured from the atmosphere and bridged onto the blockchain. During the minting process, the NFT smart contract consumes tokens representing carbon offsets, and the tokens are then taken out of circulation. By reducing the supply of carbon offsets in the marketplace, carbonized NFTs force corporations and organizations to innovate rather than buy their way towards satisfying carbon emissions regulations.\n\nIf this sounds crazy, it is... But it's working.\n\nIn October 2021, KlimaDAO successfully launched a DeFi protocol using a novel form of ponzinomics to create a "black hole for carbon".  Inspired by their ambitious mission, we invented Carbonized NFTs as the next blockchain innovation in carbon capture.\n\nTo learn more about carbonized NFTs, go to carbonized.xyz.",
+  "external_link": "https://carbonized.xyz",
+  "seller_fee_basis_points": 250, 
+  "fee_recipient": "0x3b1E1e83F61260d868ed0cd59b6abD738840a97c" 
+}
