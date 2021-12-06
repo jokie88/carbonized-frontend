@@ -10,6 +10,11 @@ This frontend currently points to the contracts deployed on polygon's mumbai tes
 
 Most variables are declared in store.js. At some point we will want to clean these up and use some sort of environment variable management system to make things more organized. For now, you can point to new contracts by changing the NFT_ADDRESS variable there to point to the latest deployed contract on the mumbai testnet. 
 
+
+# Misc
+useful tool for formatting opensea metadata json text https://www.freeformatter.com/json-escape.html#ad-output
+
+
 ## Project setup
 ```
 npm install
