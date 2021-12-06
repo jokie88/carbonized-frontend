@@ -11,7 +11,7 @@ import router from "./router/index.js"
 
 //mumbai
 const NETWORK_ID = "0x13881"; 
-const NFT_ADDRESS = "0xdA93878c49E95FC7507A7AdD818Ebd87343E7ed2";
+const NFT_ADDRESS = "0x701Adb9e6e3BFAeC9D38c9278Aca59Da7e06effA";
 const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
 
 const BOND_AMOUNT     = '20000000000000000000';
