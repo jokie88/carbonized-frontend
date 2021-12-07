@@ -12,18 +12,18 @@ import router from "./router/index.js"
 //const OPENSEA_URL = 'https://www.opensea.io/assets/';
 
 //polygon test deploy
-//const NETWORK_ID = "0x89"; 
-//const NFT_ADDRESS = "";
-//const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
-//const BOND_AMOUNT = '20000000000000000'; //0.02BCT for test
-//const OPENSEA_URL = 'https://www.opensea.io/assets/';
+const NETWORK_ID = "0x89"; 
+const NFT_ADDRESS = "";
+const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
+const BOND_AMOUNT = '20000000000000000'; //0.02BCT for test
+const OPENSEA_URL = 'https://www.opensea.io/assets/';
 
 //mumbai
-const NETWORK_ID = "0x13881"; 
-const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
-const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
-const BOND_AMOUNT = '20000000000000000000';
-const OPENSEA_URL = 'https://testnets.opensea.io/assets/mumbai/';
+// const NETWORK_ID = "0x13881"; 
+// const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
+// const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
+// const BOND_AMOUNT = '20000000000000000000';
+// const OPENSEA_URL = 'https://testnets.opensea.io/assets/mumbai/';
 
 //same for everything
 const APPROVAL_AMOUNT = '1000000000000000000000'; //BOND_AMOUNT * 10;
