@@ -35,9 +35,7 @@
     },
     methods: {
       openseaURL() {
-        //let opensea_url = 'https://www.opensea.io/assets/';
-        let opensea_url = 'https://testnets.opensea.io/assets/mumbai/';
-        return `${opensea_url}${this.$store.state.nft_address}/${this.tokenId}`;
+        return `${this.$store.state.opensea_url}${this.$store.state.nft_address}/${this.tokenId}`;
       },
 
     }
