@@ -9,14 +9,14 @@ import router from "./router/index.js"
 //const NFT_ADDRESS = "";
 //const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
 //const BOND_AMOUNT = '20000000000000000000';
-//const OPENSEA_URL = 'https://www.opensea.io/assets/';
+//const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
 
 //polygon test deploy
 const NETWORK_ID = "0x89"; 
 const NFT_ADDRESS = "0x2b67e50F4CA46FdDD4C272d817E2CfabD51b4818";
 const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
 const BOND_AMOUNT = '20000000000000000'; //0.02BCT for test
-const OPENSEA_URL = 'https://www.opensea.io/assets/';
+const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
 
 //mumbai
 // const NETWORK_ID = "0x13881"; 
