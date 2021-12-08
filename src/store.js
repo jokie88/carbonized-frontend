@@ -195,7 +195,7 @@ const store = createStore({
         commit("setMintTxn", mintTxn['hash']); 
       } catch (error) {
         console.log(error);
-        commit("setError", error.message);
+        commit("setError", error.data.message);
         if (error.code == 4001) { window.location.reload(); } // Force reload of webpage when user cancels Metamask transaction
       }
     },

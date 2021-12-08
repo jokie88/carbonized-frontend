@@ -212,7 +212,15 @@ export default {
       let address = this.$store.getters.account;
       return address.substring(0,6) + "..." + address.substring(address.length - 5 , address.length)
     },
-  }
+    errorMsg() {
+      return this.$store.getters.error;
+    },
+  },
+  watch: {
+    errorMsg (newMsg, oldMsg) {
+      this.$swal(newMsg).then(() => {window.location.reload()}); // feels hacky 
+    }
+  },
 };
 </script>
 <style scoped>
