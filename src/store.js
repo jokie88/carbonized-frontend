@@ -12,18 +12,18 @@ import router from "./router/index.js"
 //const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
 
 //polygon test deploy
-const NETWORK_ID = "0x89"; 
-const NFT_ADDRESS = "0x2b67e50F4CA46FdDD4C272d817E2CfabD51b4818";
-const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
-const BOND_AMOUNT = '20000000000000000'; //0.02BCT for test
-const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
+// const NETWORK_ID = "0x89"; 
+// const NFT_ADDRESS = "0x2b67e50F4CA46FdDD4C272d817E2CfabD51b4818";
+// const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
+// const BOND_AMOUNT = '20000000000000000'; //0.02BCT for test
+// const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
 
 //mumbai
-// const NETWORK_ID = "0x13881"; 
-// const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
-// const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
-// const BOND_AMOUNT = '20000000000000000000';
-// const OPENSEA_URL = 'https://testnets.opensea.io/assets/mumbai/';
+const NETWORK_ID = "0x13881"; 
+const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
+const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
+const BOND_AMOUNT = '20000000000000000000';
+const OPENSEA_URL = 'https://testnets.opensea.io/assets/mumbai/';
 
 //same for everything
 const APPROVAL_AMOUNT = '1000000000000000000000'; //BOND_AMOUNT * 10;
@@ -32,24 +32,35 @@ const store = createStore({
   state () {
     return {
       account: null,
+      account_balance: 0,
       error: null,
       mining: false,
       nft_address: NFT_ADDRESS,
+      nft_contract: null,
       opensea_url: OPENSEA_URL,
       count: 0,
       user: undefined,
       network_id: "0x4",
       mint_count: null,
+      approved: false,
+      erc20_contract: null,
     }
   },
   getters: {
     account: (state) => state.account,
+    account_balance: (state) => state.account_balance,
     error: (state) => state.error,
     mint_count: (state) => state.mint_count,
+    approved: (state) => state.approved,
+    erc20_contract: (state) => state.erc20_contract,
+    nft_contract: (state) => state.nft_contract,
   },
   mutations: {
     setAccount(state, account) {
       state.account = account;
+    },
+    setAccountBalance(state, accountBalance){
+      state.account_balance = accountBalance;
     },
     setError(state, error) {
       state.error = error;
@@ -59,6 +70,15 @@ const store = createStore({
     },
     setMintCount(state, mintCount) {
       state.mint_count = mintCount;
+    },
+    setApprovalState (state, approval){
+      state.approved = approval;
+    },
+    setERC20Contract (state, contract){
+      state.erc20_contract = contract;
+    },
+    setNFTContract (state, contract){
+      state.nft_contract = contract;
     },
   },
   actions: {
@@ -101,11 +121,16 @@ const store = createStore({
         return 0;
       }
     },
-    async checkIfConnected({ commit }) {
+    async checkIfConnected({ commit, dispatch }) {
       const { ethereum } = window;
       const accounts = await ethereum.request({ method: "eth_accounts" });
       if (accounts.length !== 0) {
         commit("setAccount", accounts[0]);
+
+        // Check approval status of ERC20 contract
+        const BCTContract = await dispatch("getBCTContract");
+        let approval = await (await BCTContract.allowance(accounts[0], NFT_ADDRESS)).gt(0);
+        commit("setApprovalState", approval);
         return 1;
       } else {
         return 0;
@@ -119,7 +144,7 @@ const store = createStore({
       commit("setAccount", accounts[0]);
     },
 
-    async getNFTContract({ state }) {
+    async getNFTContract({ state, commit }) {
       try {
         const { ethereum } = window;
         const provider = new ethers.providers.Web3Provider(ethereum);
@@ -129,6 +154,16 @@ const store = createStore({
           NFTArtifact.abi,
           signer
         );
+        commit("setNFTContract", connectedContract);
+
+        // Get account_balance for current account, if exists
+        if (this.state.account){
+          let accountBalance = await connectedContract.balanceOf(this.state.account);
+          if (accountBalance.gt(0)) {
+            commit("setAccountBalance", accountBalance.toNumber());
+          }
+        }
+
         return connectedContract;
       } catch (error) {
         console.log(error);
@@ -136,21 +171,24 @@ const store = createStore({
         return null;
       }
     },
-    async mintNFT({ commit, dispatch }, account) {
+    async mintNFT({ commit, dispatch, state }, account) {
       try {
-        const NFTContract = await dispatch("getNFTContract");
+        let NFTContract;
+        if (this.state.nft_contract){
+          NFTContract = this.state.nft_contract;
+        } else {
+          NFTContract = await dispatch("getNFTContract");
+        }
         const mintTxn = await NFTContract.safeMint(account);
         await mintTxn.wait();
+        console.log(mintTxn);
       } catch (error) {
         console.log(error);
-        if (error.data.code == 3) {
-          commit("setError", error.data.message);
-          alert(error.data.message);
-        }
-        console.log(error.data.message)
+        commit("setError", error.message);
+        if(!alert(error.message)){window.location.reload();} // Force reload of webpage when user cancels Metamask transaction
       }
     },
-    async getBCTContract({ state }) {
+    async getBCTContract({ commit }) {
       try {
         const { ethereum } = window;
         const provider = new ethers.providers.Web3Provider(ethereum);
@@ -160,6 +198,7 @@ const store = createStore({
           ERC20abi,
           signer
         );
+        commit("setERC20Contract", connectedContract);
         return connectedContract;
       } catch (error) {
         console.log(error);
@@ -167,11 +206,18 @@ const store = createStore({
         return null;
       }
     },
-    async approveBCT({ commit, dispatch }, account) {
+    async approveBCT({ state, commit, dispatch }, account) {
       try {
-        const BCTContract = await dispatch("getBCTContract");
+        let BCTContract;
+        if (state.erc20_contract){
+          BCTContract = state.erc20_contract;
+        } else {
+          BCTContract = await dispatch("getBCTContract");
+        }
         const mintTxn = await BCTContract.approve(NFT_ADDRESS, APPROVAL_AMOUNT);
         await mintTxn.wait();
+        let approval = await (await BCTContract.allowance(account, NFT_ADDRESS)).eq(APPROVAL_AMOUNT);
+        commit("setApprovalState", approval);
       } catch (error) {
         console.log(error);
       }
@@ -180,6 +226,7 @@ const store = createStore({
       try {
         const connectedContract = await dispatch("getNFTContract");
         if (!connectedContract) return;
+        commit("setNFTContract", connectedContract);
         let mintcount = await connectedContract.totalSupply();
         commit("setMintCount", mintcount.toNumber());
         connectedContract.on(
@@ -188,12 +235,13 @@ const store = createStore({
             console.log(
               `NFT Minted - sender: ${from} to: ${to} tokenId: ${tokenId.toNumber()}`
             );
-            //const owner = await connectedContract.ownerOf(tokenId);
             let nonchecksummed_to = to.toLowerCase();
-            console.log(state.account);
-            console.log(to === state.account);
-            console.log(to == state.account);
-            if (nonchecksummed_to == state.account) {
+            // console.log(this.state.account);
+            // console.log(state.account);
+            // console.log(to === state.account.toLowerCase());
+            // console.log(to == state.account.toLowerCase());
+            let newAccountBalance = await connectedContract.balanceOf(state.account);
+            if (nonchecksummed_to == state.account.toLowerCase() && newAccountBalance.eq(state.account_balance + 1)) {
               router.push("/minted/"+tokenId);  
             }
           }
