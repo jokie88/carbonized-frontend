@@ -3,9 +3,9 @@
     <nav class="navbar navbar-light navbar-expand-sm">
       <a class="navbar-brand" href="/">carbonized.xyz</a>
       <div class="" id="navbarText">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav flex-row float-right">
           <li class="nav-item">
-            <router-link to="/about" class="nav-link">FAQ</router-link>
+            <router-link to="/about" class="nav-link  pr-3">FAQ</router-link>
           </li>
           <li class="nav-item">
             <a href="https://www.carbonized.xyz" class="nav-link">About</a>
@@ -17,6 +17,7 @@
     </nav>
     <br /><br />
     <router-view></router-view>
+    <br />
   </div>
   <footer>
     &copy 2021 carbonized.xyz

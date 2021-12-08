@@ -1,9 +1,9 @@
 <template>
   <div class="home container">
     <div class="row">
-      <div class="col"></div>
-      <div class="col-10">
-        <h1 class="display-2 headline">The Genesis Stone</h1>
+
+      <div class="">
+        <h1 class="display-3 headline">The Genesis Stone</h1>
         <p class="lead">The World's First Carbonized NFT</p>
         <br/>
         <br/>
@@ -12,7 +12,8 @@
         <br/>
         <br/>
         <div class="row">
-          <div class="col-8 offset-2 text-left">
+          <div class="col-lg-8 offset-lg-2 text-left">
+            <br /><br/><br />
           <p>
             The Genesis Stone is the world’s first carbonized NFT. 
           </p>
@@ -30,7 +31,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8 offset-2">  
+          <div class="col-lg-8 offset-lg-2 t">  
         <br/><br/>
         <div>
           <h5 v-if="account_balance != 1">
@@ -141,7 +142,7 @@
 
 
       </div>  
-      <div class="col"></div>
+
     </div>
     
     <br />
