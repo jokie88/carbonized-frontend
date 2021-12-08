@@ -14,16 +14,18 @@
         <div class="row">
           <div class="col-8 offset-2 text-left">
           <p>
-            The Genesis Stone is the world’s first NFT that consumes tokenized carbon offsets when minted, specifically BCT.
+            The Genesis Stone is the world’s first carbonized NFT. 
           </p>
           <p>
-            We chose a rock for the first carbonized NFT in existence as a nod to the controversial EtherRock NFT, which many critiqued in context of the greater question surrounding the value of NFTs. Were they simply jpegs? We believe carbonized NFTs offer a new argument to be considered in that debate.
+            It captures carbon from the atmosphere by consuming tokens representing carbon offsets that have been bridged on-chain, specifically Base Carbon Tonne tokens (BCT). 
           </p>
           <p>
-            The surface of the Genesis Stone was modeled to resemble basalt - a carbon capturing rock that contains high concentrations of calcium and magnesium ions that react with CO2. The diamond-like shape of the Genesis Stone loosely imitates the Ethereum logo, as an acknowledgment of the technological innovation of the Ethereum blockchain.
+            We chose a rock for the first carbonized NFT in existence as a nod to the EtherRock, which became a flashpoint of criticism surrounding the value of NFTs. Are they simply jpegs? We believe carbonized NFTs offer a compelling argument in that debate.          
           </p>
           <p>
-            The Genesis Stone is limited to 100 Pieces. <span v-if="mint_count">Currently, {{ mint_count }} Genesis Stones are available for minting.</span>
+            The surface of The Genesis Stone was modeled to resemble basalt - a carbon-capturing rock that contains high concentrations of calcium and magnesium ions that react with CO2. The diamond-like shape of The Genesis Stone loosely imitates the Ethereum logo, as an acknowledgment of the technological innovation of the Ethereum blockchain. On the surface of The Genesis Stone is a trace of green moss, symbolizing the life-giving intent of carbonized NFTs.          </p>
+          <p>
+            Only 100 Genesis Stones will be available to mint.  <span v-if="mint_count">Currently, {{ mint_count }} Genesis Stones are available for minting.</span>
           </p>
           </div>
         </div>
@@ -31,12 +33,12 @@
           <div class="col-8 offset-2">  
         <br/><br/>
         <div>
-          <h3 v-if="account_balance != 1">
+          <h5 v-if="account_balance != 1">
             You currently have {{account_balance}} Genesis Stones. 
-          </h3>
-          <h3 v-else>
+          </h5>
+          <h5 v-else>
             You currently have {{account_balance}} Genesis Stone. 
-          </h3>
+          </h5>
         </div>
         <br/><br/>
         <h3>

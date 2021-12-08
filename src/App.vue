@@ -5,7 +5,7 @@
       <div class="" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <router-link to="/about" class="nav-link">How It Works</router-link>
+            <router-link to="/about" class="nav-link">FAQ</router-link>
           </li>
           <li class="nav-item">
             <a href="https://www.carbonized.xyz" class="nav-link">About</a>
