@@ -10,10 +10,15 @@
       
     </div></div>
     <br /><br/>
-    <h5>
+    <h7>
+      <a v-bind:href="polygonscanURL()"
+      target="_target">View Transaction on Polygonscan</a>
+    </h7>
+      <br /><br/>  
+    <h7>
       <a v-bind:href="openseaURL()"
-      target="_eth">View on Opensea</a>
-    </h5>
+      target="_eth">View on Opensea (doesn't populate immediately)</a>
+    </h7>
     <br/><br/>
     <br/><br/>
     <br/><br/>
@@ -36,6 +41,9 @@
     methods: {
       openseaURL() {
         return `${this.$store.state.opensea_url}${this.$store.state.nft_address}/${this.tokenId}`;
+      },
+      polygonscanURL() {
+        return `${this.$store.state.polygonscan_url}/tx/${this.$store.state.mint_txn}`;
       },
 
     }
