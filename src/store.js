@@ -8,13 +8,24 @@ import router from "./router/index.js"
 //const NETWORK_ID = "0x89"; 
 //const NFT_ADDRESS = "";
 //const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
+//const BOND_AMOUNT = '20000000000000000000';
+//const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
+
+//polygon test deploy
+const NETWORK_ID = "0x89"; 
+const NFT_ADDRESS = "0x2b67e50F4CA46FdDD4C272d817E2CfabD51b4818";
+const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
+const BOND_AMOUNT = '20000000000000000'; //0.02BCT for test
+const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
 
 //mumbai
-const NETWORK_ID = "0x13881"; 
-const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
-const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
+// const NETWORK_ID = "0x13881"; 
+// const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
+// const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
+// const BOND_AMOUNT = '20000000000000000000';
+// const OPENSEA_URL = 'https://testnets.opensea.io/assets/mumbai/';
 
-const BOND_AMOUNT     = '20000000000000000000';
+//same for everything
 const APPROVAL_AMOUNT = '1000000000000000000000'; //BOND_AMOUNT * 10;
 
 const store = createStore({
@@ -26,6 +37,7 @@ const store = createStore({
       mining: false,
       nft_address: NFT_ADDRESS,
       nft_contract: null,
+      opensea_url: OPENSEA_URL,
       count: 0,
       user: undefined,
       network_id: "0x4",
