@@ -5,12 +5,12 @@ import NFTArtifact from "./assets/abi/Carbon.json";
 import ERC20abi from "./assets/abi/erc20.json"; //this is already an abi
 import router from "./router/index.js"
 //polygon
-//const NETWORK_ID = "0x89"; 
-//const NFT_ADDRESS = "";
-//const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
-//const BOND_AMOUNT = '20000000000000000000';
-//const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
-//const POLYGONSCAN_URL = 'https://www.polygonscan.com/';
+const NETWORK_ID = "0x89"; 
+const NFT_ADDRESS = "0xFd66001d98EC91791525cF4a4c3Fdfec03d14aE0";
+const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
+const BOND_AMOUNT = '20000000000000000000';
+const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
+const POLYGONSCAN_URL = 'https://www.polygonscan.com/';
 
 //polygon test deploy
 // const NETWORK_ID = "0x89"; 
@@ -21,12 +21,12 @@ import router from "./router/index.js"
 // const POLYGONSCAN_URL = 'https://www.polygonscan.com/';
 
 //mumbai
-const NETWORK_ID = "0x13881"; 
-const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
-const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
-const BOND_AMOUNT = '20000000000000000000';
-const OPENSEA_URL = 'https://testnets.opensea.io/assets/mumbai/';
-const POLYGONSCAN_URL = 'https://mumbai.polygonscan.com/'
+// const NETWORK_ID = "0x13881"; 
+// const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
+// const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
+// const BOND_AMOUNT = '20000000000000000000';
+// const OPENSEA_URL = 'https://testnets.opensea.io/assets/mumbai/';
+// const POLYGONSCAN_URL = 'https://mumbai.polygonscan.com/'
 
 
 //same for everything
