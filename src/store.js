@@ -12,18 +12,18 @@ import router from "./router/index.js"
 //const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
 
 //polygon test deploy
-const NETWORK_ID = "0x89"; 
-const NFT_ADDRESS = "0x2b67e50F4CA46FdDD4C272d817E2CfabD51b4818";
-const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
-const BOND_AMOUNT = '20000000000000000'; //0.02BCT for test
-const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
+// const NETWORK_ID = "0x89"; 
+// const NFT_ADDRESS = "0x2b67e50F4CA46FdDD4C272d817E2CfabD51b4818";
+// const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
+// const BOND_AMOUNT = '20000000000000000'; //0.02BCT for test
+// const OPENSEA_URL = 'https://www.opensea.io/assets/matic/';
 
 //mumbai
-// const NETWORK_ID = "0x13881"; 
-// const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
-// const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
-// const BOND_AMOUNT = '20000000000000000000';
-// const OPENSEA_URL = 'https://testnets.opensea.io/assets/mumbai/';
+const NETWORK_ID = "0x13881"; 
+const NFT_ADDRESS = "0x625B8819810B763A6E908bC1819b2F9184fE104b";
+const BCT_ADDRESS = "0xe07d7b44d340216723ed5ea33c724908b817ee9d"; //subbing in usdt
+const BOND_AMOUNT = '20000000000000000000';
+const OPENSEA_URL = 'https://testnets.opensea.io/assets/mumbai/';
 
 //same for everything
 const APPROVAL_AMOUNT = '1000000000000000000000'; //BOND_AMOUNT * 10;
@@ -181,13 +181,11 @@ const store = createStore({
         }
         const mintTxn = await NFTContract.safeMint(account);
         await mintTxn.wait();
+        console.log(mintTxn);
       } catch (error) {
         console.log(error);
-        if (error.data.code == 3) {
-          commit("setError", error.data.message);
-          alert(error.data.message);
-        }
-        console.log(error.data.message)
+        commit("setError", error.message);
+        if(!alert(error.message)){window.location.reload();} // Force reload of webpage when user cancels Metamask transaction
       }
     },
     async getBCTContract({ commit }) {
