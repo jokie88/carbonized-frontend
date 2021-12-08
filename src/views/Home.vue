@@ -3,17 +3,17 @@
     <div class="row">
 
       <div class="">
-        <h1 class="display-3 headline">The Genesis Stone</h1>
-        <p class="lead">The World's First Carbonized NFT</p>
-        <br/>
-        <br/>
-    <!--    <img src="/images/carbonized_genesis_collection.jpg" class="rounded headimg img-thumbnail" title="" /> -->
-        <img src="/images/rock_lowmoss_low.png" class="rounded headimg img-thumbnail" title="" />
-        <br/>
-        <br/>
+
         <div class="row">
           <div class="col-lg-8 offset-lg-2 text-left">
-            <br /><br/><br />
+                    <h1 class="display-3 headline text-center">The Genesis Stone</h1>
+        <p class="lead text-center">The World's First Carbonized NFT</p>
+        <br/>
+        <br/>
+        <img src="/images/rock_lowmoss_low.png" class="rounded img-fluid img-thumbnail" title="" />
+        <br/>
+        <br/>
+            <br /><br/>
           <p>
             The Genesis Stone is the world’s first carbonized NFT. 
           </p>
@@ -32,7 +32,7 @@
         </div>
         <div class="row">
           <div class="col-lg-8 offset-lg-2 t">  
-        <br/><br/>
+        <br/>
         <div>
           <h5 v-if="account_balance != 1">
             You currently have {{account_balance}} Genesis Stones. 
@@ -41,7 +41,7 @@
             You currently have {{account_balance}} Genesis Stone. 
           </h5>
         </div>
-        <br/><br/>
+        <br/><br/><br/><br/>
         <h3>
           Mint the Genesis Stone by Infusing BCT into the NFT <br />
           <small><router-link to="/about" class="nav-link">How do Carbonized NFTs work?</router-link></small>
@@ -78,7 +78,7 @@
             </div>
           </div>
         </div>
-        <br/><br/>
+        <br/><br/><br/><br/>
         <h4>
           Steps to Mint
         </h4>
