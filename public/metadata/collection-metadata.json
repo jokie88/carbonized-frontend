@@ -2,6 +2,7 @@
   "name": "The Genesis Stones",
   "description": "Carbonized NFTs are NFTs that have been infused with carbon captured from the atmosphere and bridged onto the blockchain. Carbonized NFTs can take many different forms. In the case of The Genesis Stone, the NFT smart contract consumes tokens representing carbon offsets during minting, and the tokens are then taken out of circulation. By reducing the supply of carbon offsets in the marketplace, carbonized NFTs can force corporations and organizations to innovate rather than buy their way towards satisfying carbon emissions regulations.\r\n\r\nTo learn more about carbonized NFTs, go to http:\/\/carbonized.xyz.\r\n",
   "external_link": "https://carbonized.xyz",
+  "image": "https://gateway.pinata.cloud/ipfs/QmaKDv1oqQjajnSRZdFzEQuNHfCKpYgiZzEXZYgbdfxTZV",
   "seller_fee_basis_points": 250, 
   "fee_recipient": "0x3b1E1e83F61260d868ed0cd59b6abD738840a97c" 
 }
