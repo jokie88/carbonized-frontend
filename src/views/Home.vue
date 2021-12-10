@@ -13,7 +13,10 @@
         <img src="/images/rock_lowmoss_low.png" class="rounded img-fluid img-thumbnail" title="" />
         <br/>
         <br/>
-            <br /><br/>
+            <br />
+          <h1 class="text-center text-success">- FULLY MINTED -</h1>
+          <p class="text-success font-weight-bold">We DID IT! Thank you to the crypto x climate community!!! All 100 Genesis Stones were minted within 5 hours. Please <a href="https://twitter.com/carbonizedNFT">follow us on Twitter</a> for future NFT drops and check out <a href="https://opensea.io/collection/the-genesis-stones">Opensea for Genesis Stones</a> which may be for sale.</p>
+          <br/>
           <p>
             The Genesis Stone is the world’s first carbonized NFT. 
           </p>
@@ -26,7 +29,7 @@
           <p>
             The surface of The Genesis Stone was modeled to resemble basalt - a carbon-capturing rock that contains high concentrations of calcium and magnesium ions that react with CO2. The diamond-like shape of The Genesis Stone loosely imitates the Ethereum logo, as an acknowledgment of the technological innovation of the Ethereum blockchain. On the surface of The Genesis Stone is a trace of green moss, symbolizing the life-giving intent of carbonized NFTs.          </p>
           <p>
-            Only 100 Genesis Stones will be available to mint.  <span v-if="mint_count">Currently, {{ mint_count }} Genesis Stones are available for minting.</span>
+            Only 100 Genesis Stones will be available to mint.  <strong>Currently, 0 Genesis Stones are available for minting.</strong>
           </p>
           </div>
         </div>
